@@ -1,0 +1,16 @@
+%h2 Connections
+
+%table{:border => 1}
+  %tr
+    %th Name
+    %th ssh command
+    %th private key
+    %th Node-RED
+  - @connections.each do |c|
+    %tr
+      %td= c.name
+      %td= c.ssh_command
+      %td
+        %a{:href => "/connections/#{c.id}/private_key", :target => "_blank"} Download
+      %td
+        %a{:href => c.nodered_url, :target => "_blank"} Open
