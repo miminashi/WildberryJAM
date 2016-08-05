@@ -27,7 +27,7 @@ module WildberryJam
     end
 
     def nodered_url
-      URI.join(URI::HTTP.build(:host => HOST, :port => self.downstream_port), "/red/#{self.tunnel_port}")
+      URI.join(URI::HTTP.build(:host => HOST, :port => self.downstream_port), "/red/#{self.tunnel_port}/")
     end
 
     def tunnel_port
