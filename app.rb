@@ -64,6 +64,16 @@ module WildberryJam
       haml :index, :layout => :layout
     end
 
+    get '/connections/new' do
+      haml :new, :layout => :layout
+    end
+
+    post '/connections' do
+      name = params[:name]
+      Connection.create(:name => name)
+      redirect to('/')
+    end
+
     get '/connections/:id/private_key' do
       content_type :plaintext
       Connection.find(params[:id]).ssh_private_key
